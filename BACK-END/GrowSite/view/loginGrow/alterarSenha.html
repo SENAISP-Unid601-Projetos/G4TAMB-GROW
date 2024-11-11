@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylerecuperar.css">
+    <link rel="website icon" type="png" href="../icon.png" sizes="30px">
+    <title>Recuperar Senha</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="senha.png" alt="">
+        </div>
+        <div class="form"> 
+            <div class="form-header">                    
+                   
+                    <div class="title">
+                        <h1 style="color: black;">Alterar Senha da GROW!</h1>
+                    </div>
+
+                </div>
+            <!-- <form action="#"> -->
+
+                        <div class="input-box" style="width: 100%;">
+                            <label for="email" style="font-size: 15px;">Digite Sua Nova Senha</label>
+                            <input id="senha" maxlength="8" type="password" name="senha" placeholder="Insira sua nova senha" required>
+                            <input id="confirmarSenha" maxlength="8" type="password" name="confirmarSenha" placeholder="Insira novamente sua nova senha" required>
+                            <span id="mensagem" style="color: red; font-family: Arial, Helvetica, sans-serif; font-weight: bold;"></span>
+                        </div>
+
+            <!-- </form> -->
+            <div class="continue-button">
+                    <button id="btn">Alterar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./novaSenha.js"></script>

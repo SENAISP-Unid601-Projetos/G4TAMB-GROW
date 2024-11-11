@@ -1,0 +1,19 @@
+{
+  "name": "growsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro, Marianne, João Vitor, Lavinia, Talie, Kaio, Ana Carolina, Enzo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.16",
+    "path": "^0.12.7",
+    "pg": "^8.13.0",
+    "sweetalert2": "^11.6.13"
+  }
+}
