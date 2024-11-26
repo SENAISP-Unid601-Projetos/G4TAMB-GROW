@@ -3,6 +3,12 @@ window.addEventListener('DOMContentLoaded', () => {
     let info = localStorage.getItem('DadosUsuario');
     
     info = JSON.parse(info);
+
+    if(info.descricao != null) {
+        document.getElementById('descricao').textContent = info.descricao;
+    } else{
+        document.getElementById('descricao').textContent = "Sua Empresa ainda não tem Descrição";
+    }
     
     let nome = document.getElementById("nomes");
     let nomeTop = document.querySelectorAll('.nomePerfil')[0];
@@ -54,6 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(resJson =>{
             console.log(resJson.resp.length);
             document.getElementById('numVagas').textContent = resJson.resp.length;
+            document.querySelector('#qtdSla').textContent = resJson.resp.length;
             
         })
         .catch(erro =>{
@@ -63,6 +70,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         qtdCandidatos();
 
+    document.getElementById('btnAtualiza').addEventListener('click',()=> {
+        atualizaDescricao(info)
+    })
+
+    
 });
 
 
@@ -133,33 +145,6 @@ function novaVaga(){
         })
 }
 
-let sair = document.querySelectorAll('.logOut');
-   sair.forEach(s => {
-        s.addEventListener('click',()=>{
-            logOut()
-        })
-   })
-
-function logOut(){
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
-      });
-      Toast.fire({
-        icon: "Sucesso",
-        title: "Saindo da conta ..."
-      });
-    localStorage.removeItem('DadosUsuario')
-    window.open('/','_self')
-}
-
 async function qtdCandidatos(){
     let cnpj = localStorage.getItem('DadosUsuario');
     cnpj = JSON.parse(cnpj);
@@ -185,9 +170,61 @@ async function qtdCandidatos(){
         })
         .then(resJson => {
             document.querySelector('#qtdCandidatos').textContent = resJson.resp[0].count;
+            
         })
         .catch(erro => {
             console.log(erro);
             
         })
+}
+
+async function atualizaDescricao (obj) {
+    const descricao = document.getElementById('message-text');
+    if(descricao.value != "") {
+    let dados = {
+        cnpj : obj.cnpj,
+        descricao : descricao.value
+    }
+    dados = JSON.stringify(dados);
+    await fetch('/alterarDescricao', {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : dados
+    })
+        .then(res => {
+            if(!res.ok) {
+                throw new Error("Deu Ruim!");
+            }
+            return res.json();
+        })
+        .then(resJson => {
+            if(resJson.sucesso == true) {
+                let dados = JSON.parse(localStorage.getItem("DadosUsuario"));
+                dados.descricao = descricao.value;
+                localStorage.setItem("DadosUsuario", JSON.stringify(dados));
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: resJson.mensagem,
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(() => {
+                    window.location.reload();
+                  })
+            } else {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: resJson.mensagem,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+        .catch(erro => {
+            console.log(erro);
+        })
+    }
 }

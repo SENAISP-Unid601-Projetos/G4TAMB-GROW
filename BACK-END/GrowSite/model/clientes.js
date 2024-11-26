@@ -197,7 +197,9 @@ async function candidaturas(dados) {
             EMPRESA.cidade AS cidade,
             EMPRESA.estado AS estado,
             EMPRESA.razao AS razao,
-            USUARIO_VAGA.ID AS idVaga
+            EMPRESA.cnpj AS cnpj,
+            USUARIO_VAGA.ID AS idVaga,
+            VAGA.ID AS idDaVaga
         FROM 
             VAGA
             INNER JOIN 
@@ -317,7 +319,87 @@ async function verVagasSalvas(dados) {
         return resposta;
     }
 }
+async function postar(dados) {
+    const conexao = psql.conexao();
+    let resposta
+    try{
+        const consulta = await conexao.query(`
+            INSERT INTO POSTAGENS ("texto","fk_cpf_usuario","data_postagem")
+            VALUES('${dados.texto}','${dados.cpf}','${dados.data}')
 
+        `)
+        resposta = {
+            sucesso : true,
+            resp : consulta
+        }
+    } catch(erro){
+        resposta = {
+            sucesso : false,
+            resp : erro
+        }
+    }
+    conexao.end();
+    return resposta;
+}
+async function getPostsPorCPF(dados) {
+    const conexao = psql.conexao();
+    let resposta;
+    try{
+        const consulta = await conexao.query(`
+            SELECT * FROM POSTAGENS
+            WHERE fk_cpf_usuario = '${dados.cpf}'    
+        `)
+        resposta = {
+            sucesso : true,
+            resp : consulta.rows
+        }
+    } catch(erro) {
+        resposta = {
+            sucesso : false,
+            resp : erro
+        }
+    }
+    conexao.end();
+    return resposta;
+}
+async function recentes () {
+    const conexao = psql.conexao();
+    let resposta;
+    try {
+        const consulta = await conexao.query(`
+                        select 
+                VAGA.NECESSIDADE AS NECESSIDADE,
+                VAGA.SALARIO AS SALARIO,
+                VAGA.CARGA_HORARIA AS CARGA_HORARIA,
+                EMPRESA.CNPJ AS CNPJ,
+                EMPRESA.RAZAO AS RAZAO,
+                EMPRESA.IMG AS IMG,
+                EMPRESA.ESTADO AS ESTADO,
+                EMPRESA.CIDADE AS CIDADE,
+                EMPRESA.NUMERO AS NUMERO,
+                EMPRESA.RUA AS RUA,
+                VAGA.ID AS IDVAGA
+            from vaga 
+            INNER JOIN EMPRESA ON (EMPRESA.CNPJ = VAGA.FK_CNPJ_EMPRESA)
+            order by id desc limit 10;
+    
+        `)
+        resposta = {
+            sucesso : true,
+            resp : consulta.rows
+        }
+    } catch (error) {
+        resposta = {
+            sucesso : false,
+            resp : erro
+        }
+    }
+    conexao.end();
+    return resposta;
+}
+exports.recentes = recentes;
+exports.getPostsPorCPF = getPostsPorCPF;
+exports.postar = postar;
 exports.removeCandidatura = removeCandidatura;
 exports.candidaturas = candidaturas;
 exports.salvarVaga = salvarVaga;

@@ -972,5 +972,34 @@
 
 		<!-- Examples -->
 		<script src="assets/javascripts/ui-elements/examples.portlets.js"></script>
+		<script src="assets/js/empresa.js"></script>
+		<script>
+			let sair = document.querySelectorAll('.logOut');
+   sair.forEach(s => {
+        s.addEventListener('click',()=>{
+            logOut()
+        })
+   })
+
+function logOut(){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "Sucesso",
+        title: "Saindo da conta ..."
+      });
+    localStorage.removeItem('DadosUsuario')
+    window.open('/','_self')
+}
+		</script>
 	</body>
 </html>

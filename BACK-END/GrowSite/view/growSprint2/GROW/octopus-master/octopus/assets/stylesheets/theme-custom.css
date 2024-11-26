@@ -204,8 +204,8 @@ a, .btn-link:hover {
 
 .pg {
     padding: 10px;
-    height: 180px;
-    width: 180px;
+    height: 155px;
+    width: 155px;
     margin-bottom: 34px;
 }
 
@@ -272,9 +272,31 @@ a, .btn-link:hover {
     background-color: #298563;
     color: rgb(255, 255, 255);
     height: 30px;
+    margin-right: 10px;
     
 }
 
-.entraremcontato:hover{
-    background-color: rgb(80, 137, 106);
+.dispensar{
+    background-color: #616161;
+    width: 25%;
 }
+
+.dispensar:hover{
+    background-color: #797979;
+}
+
+.contratar{
+    width: 25%;
+}
+
+.contratar:hover{
+    background-color: #2e9a74;
+}
+
+.botaocontrata:hover{
+    background-color: #d3e0d9;
+}
+
+/* .entraremcontato:hover{
+    background-color: rgb(80, 137, 106);
+} */

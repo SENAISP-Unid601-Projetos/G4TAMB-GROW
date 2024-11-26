@@ -5,7 +5,7 @@
 		<!-- Basic -->
 		<meta charset="UTF-8">
 		<link rel="website icon" type="png" href="../icon.png" sizes="30px">
-		<title id="titlo">Perfil de Empresa</title>
+		<title id="titlo">Anúncios Publicados</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
 		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
 		<meta name="author" content="okler.net">
@@ -34,6 +34,11 @@
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
 
+
+		
+
+
+
 	</head>
 	<body>
 		<section class="body">
@@ -52,14 +57,8 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
-					<form action="pages-search-results.html" class="search nav-form">
-						<div class="input-group input-search">
-							<input type="text" class="form-control" name="q" id="q" placeholder="Pesquisar...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
+					
+					
 			
 					<span class="separator"></span>
 			
@@ -232,8 +231,8 @@
 								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="fileImg img-circle" id="imgTop"  data-lock-picture="assets/images/!logged-user.jpg" />
 							</figure>
 							<div class="profile-info" data-lock-name="John Doe" data-lock-email="dasouza@okler.com">
-								<span class="name nomePerfil">Nome</span>
-								<span class="role">Empresa</span>
+								<span class="name nomePerfil" id="nomeEmpresa"></span>
+								<span class="role rolePerfil">Empresa</span>
 							</div>
 			
 							<i class="fa custom-caret"></i>
@@ -242,14 +241,13 @@
 						<div class="dropdown-menu">
 							<ul class="list-unstyled">
 								<li class="divider"></li>
-								<li> 
-									<a role="menuitem" tabindex="-1" href="pages-500.html"><i class="fa fa-user"></i> Meu Perfil</a>
+								<li>
+									<a role="menuitem" tabindex="-1" href="pages-500.html" data-lock-screen="false"><i
+											class="fa fa-user"></i> Perfil</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Tela de Bloqueio</a>
-								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i>Sair</a>
+									<a role="menuitem" tabindex="-1" class="logOut" style="cursor: pointer;"><i
+											class="fa fa-power-off"></i>Sair</a>
 								</li>
 							</ul>
 						</div>
@@ -292,34 +290,34 @@
 									</li> -->
 									<li class="nav-active">
 										<a href="ui-elements-sliders.html">
-											<span class="pull-right label label-primary">1</span>
+											<span class="pull-right label label-primary" id="anuncioss"></span>
 											<i class="fa  fa-bullhorn" aria-hidden="true"></i>
 											<span>Anúncios Publicados</span>
 										</a>
 									</li>
-									<li>
-										<a href="#">
-											<!-- <span class="pull-right label label-primary">18</span> -->
+									<!-- <li>
+										<a href="ui-elements-progressbars.html">
+											 <span class="pull-right label label-primary">18</span> 
 											<i class="fa   fa-bookmark" aria-hidden="true"></i>
 											<span>Perfis Salvos</span>
 										</a>
-									</li>
+									</li> -->
 									<li>
-										<a href="#">
+										<a href="ui-elements-progressbars.html">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-check-square-o" aria-hidden="true"></i>
 											<span>Candidatos</span>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="ui-elements-nestable.html">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-exclamation" aria-hidden="true"></i>
 											<span>Ajuda</span>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="#" class="logOut">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-sign-out" aria-hidden="true"></i>
 											<span>Sair</span>
@@ -754,13 +752,13 @@
 
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Perfil da Empresa</h2>
+						<h2>Anúncios Publicados</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
 								<li>
-									<a href="ui-elements-tabs.html">
-										<i class="fa fa-home"></i>
+									<a href="pages-500.html">
+										<i class="fa fa-user"></i>
 									</a>
 								</li>
 								<!-- <li><span>Páginas</span></li> -->
@@ -776,43 +774,8 @@
 					<div class="row">
 					
 						<div class="tudo" style="display: flex; justify-content: right;">
-							<div class="meio">
-								<div class="row" id="pg-6">
-									<div class="col-md-6" id="pg-6">
-										<div class="row mt-lg pt-lg">
-										<div class="col-md-3">
-											<section class="panel">
-												<div class="panel-body pg" style="margin-left: -60px;">
-													<div class="owl-carousel" data-plugin-carousel data-plugin-options='{ "items": 1, "autoHeight": true }'>
-														<div class="item">
-															<img alt="" class="img-responsive" src="assets/images/projects/adz.png" style="margin-top: 19px;">
-														</div>
-														<!-- <div class="item">
-															<img alt="" class="img-responsive" src="assets/images/projects/project-2.jpg">
-														</div>
-														<div class="item">
-															<img alt="" class="img-responsive" src="assets/images/projects/project-4.jpg">
-														</div> -->
-													</div>
-												</div>
-											</section>
-										</div>
-									</div>
-										<div class="tabs">
-											<ul class="nav nav-tabs">
-												<li class="active">
-													<a href="#popular" data-toggle="tab"><i></i> ADZ Máquinas</a>
-												</li>
-											</ul>
-											<div class="tab-content" id="pg-tab" style="width: 600px; margin-left: -5px;">
-												<div id="popular" class="tab-pane active">
-													<div class="favoritar"><p>Assistente de Montagem</p> <div class="ico"><i class="fa fa-reply" style="margin-right: 10px;"></i><i style="margin-right: 10px;"></i><i class="fa fa-bookmark"></i></div></div>
-													<p>Local: Tambaú-SP. Vaga para auxiliar responsável pela de montagem de produtos, componentes ou máquinas. Carga horária diária de 8h. Salário a Combinar.</p> <a href="tables-advanced.html" style="margin-top: -22px;">(Ver mais)</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="meio" id="container">
+								
 			
 							</div>
 							
@@ -821,11 +784,11 @@
 									<h4 class="mb-md">Dados</h4>
 									<ul class="simple-card-list mb-xlg">
 										<a href="#" style="text-decoration: none;"><li class="primary">
-											<h3>1</h3>
+											<h3 id="qtd"></h3>
 											<p>Anúncios</p>
 										</li></a>
-										<a href="#" style="text-decoration: none;"><li class="primary">
-											<h3>0</h3>
+										<a href="ui-elements-progressbars.html" style="text-decoration: none;"><li class="primary">
+											<h3 id="candidatoss"></h3>
 											<p>Candidatos</p>
 										</li></a>
 										<!-- <li class="primary">
@@ -837,6 +800,11 @@
 											<p>Empresas Mostraram Interesse</p>
 										</li> -->
 									</ul>
+
+
+									
+										
+  
 			
 									<!-- <h4 class="mb-md">Projects</h4> 
 									<ul class="simple-bullet-list mb-xlg">
@@ -857,7 +825,6 @@
 											<span class="description truncate">Lorem ipsom dolor sit.</span>
 										</li>
 									</ul>-->
-			
 									
 								</div>
 							
@@ -958,7 +925,43 @@
 
 		<script src="assets/js/vagaEmpresa.js"></script>
 
-		<script src="assets/js/usuario.js"></script>
+		<script src="assets/js/infoGeraisEmpresa.js"></script>
+
 		<script src="assets/js/empresa.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<script>
+			let sair = document.querySelectorAll('.logOut');
+   sair.forEach(s => {
+        s.addEventListener('click',()=>{
+            logOut()
+        })
+   })
+
+function logOut(){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "Sucesso",
+        title: "Saindo da conta ..."
+      });
+    localStorage.removeItem('DadosUsuario')
+    window.open('/','_self')
+}
+
+	let razao = localStorage.getItem('DadosUsuario');
+	razao = JSON.parse(razao);
+	razao = razao.razao;
+	document.querySelector('#nomeEmpresa').textContent = razao;
+		</script>
 	</body>
 </html>

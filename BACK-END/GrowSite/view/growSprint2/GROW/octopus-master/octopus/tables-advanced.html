@@ -302,7 +302,7 @@
 									</li> -->
 									<li>
 										<a href="pages-404-withoutmenus.html">
-											<span class="pull-right label label-primary">15</span>
+											<span class="pull-right label label-primary" id="qtdNovidades"></span>
 											<i class="fa  fa-bullhorn" aria-hidden="true"></i>
 											<span>Novidades</span>
 										</a>
@@ -811,7 +811,7 @@
 							<div class="tabs">
 								<ul class="nav nav-tabs">
 									<li class="active">
-										<a href="#popular" data-toggle="tab" id="nomeEmpresa"><i></i></a>
+										<a href="#popular" data-toggle="tab" id="nomeEmpresa" style="margin-left: -15px;"><i></i></a>
 									</li>
 								</ul>
 								<div class="tab-content" id="pg-tab" style="width: 750px; margin-left: -15px;">
@@ -1007,6 +1007,23 @@
 		<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+		<script>
+			fetch('/novidades')
+				.then(res => {
+					if(!res.ok) {
+						throw new Error("Deu Ruim");
+					}
+					return res.json()
+				})
+				.then(resJson =>{
+					const qtd = resJson.resp.length;
+					document.getElementById('qtdNovidades').textContent = qtd;
+				})
+				.catch(error =>{
+					console.log(error);	
+				})
+		</script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>

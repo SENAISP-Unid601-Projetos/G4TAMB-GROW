@@ -27,15 +27,18 @@ window.addEventListener('DOMContentLoaded', () => {
         const assunto = document.querySelector('#subject').value;
         const email = document.querySelector('#email').value;
         const texto = document.querySelector('#message').value;
-        
-        const obj = {
-            email : email,
-            nome : nome,
-            assunto : `${assunto}`,
-            texto : texto
-        };
-        
-        const objString = JSON.stringify(obj);
-        envia(objString)
+
+        if(nome == '' || assunto == '' || email == '' || email == '' || texto == ''){
+
+        } else{
+            const obj = {
+                email : email,
+                nome : nome,
+                assunto : `${assunto}`,
+                texto : texto
+            };   
+            const objString = JSON.stringify(obj);
+            envia(objString) 
+        }
     })
 })

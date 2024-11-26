@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
     cpf = JSON.parse(cpf);
     cpf = cpf.cpf;
 
+    
+
     info = JSON.parse(info)
     const imgs = document.querySelector('#img');
     const imgTop = document.querySelector('#imgTop')
@@ -77,9 +79,55 @@ window.addEventListener('DOMContentLoaded', () => {
         atualizaDados(cpf);
     });
 
-    
+    document.getElementById('posta').addEventListener('click',()=>{
+        postar();
+    })
+
+    let dadosCpf = {
+        cpf : cpf
+    }
+    dadosCpf = JSON.stringify(dadosCpf)
+    fetch('/candidaturas', {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : dadosCpf
+    })
+        .then(res => {
+            if(!res.ok){
+                throw new Error("Deu Ruim");
+            }
+            return res.json();
+        })
+        .then(resJson =>{
+            const valores = document.querySelectorAll('.qtdCandidaturas');
+            valores.forEach(valor => {
+                valor.textContent = resJson.resp.length;
+            })
+            const respostas = resJson.resp;
+            respostas.forEach(element => {
+                let html = `
+                    <li>
+                        <a style="cursor : pointer; text-decoration: none;" href="tables-advanced.html?id=${element.iddavaga}">
+						<figure class="image rounded">
+							<img src="${element.img}" alt="" class="img-circle" style="width : 35px; height : 35px;">
+						</figure>
+							<span class="title" style="overflow: hidden;">${element.razao}</span>
+							<span class="message truncate" style="overflow: hidden;">${element.necessidade}</span>
+                        </a>
+                    </li>
+                `
+                document.getElementById('listaCandidaturas').innerHTML += html;
+            });
+        })
+        .catch(erro => {
+            console.log(erro);
+            
+        })
 
 
+ 
 })
 
 let sair = document.querySelectorAll('.logOut');
@@ -174,6 +222,9 @@ function buscaDados(cpf) {
             document.getElementById('numero').value = resJson.numero;
             document.getElementById('bairro').value = resJson.bairro;
             document.getElementById('title').textContent = `Perfil de ${resJson.nome} ${resJson.soobrenome}`
+            let telefone = resJson.celular;
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+            document.getElementById('Telefone').textContent = telefone;
         })
         .catch(erro => {
             console.log(erro);
@@ -212,4 +263,57 @@ function buscaCEP(input) {
 function formatacao(input){
     let formata = input.value.replace(/[^\d]/g, '');
     input.value = formata;
+}
+
+function postar (){
+    const texto = document.getElementById('message-text').value;
+    let cpf = JSON.parse(localStorage.getItem('DadosUsuario'));
+    let campoCPF = cpf.cpf
+    let data = new Date();
+    data = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
+
+    let dados = {
+        texto : texto,
+        cpf : campoCPF,
+        data : data
+    }
+    dados = JSON.stringify(dados)
+    fetch('/postar', {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : dados
+    })
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Deu Ruim')
+            }
+            return res.json()
+        })
+        .then(resJson => {
+            if(resJson.sucesso == true) {
+                Swal.fire({
+                    text: `Post Realizado`,
+                    icon: "success"
+                }).then(() => {
+                    window.location.reload();
+                })
+            } else{
+                Swal.fire({
+                    text: `Post Não Realizado, tente novamente`,
+                    icon: "error"
+                })
+            }
+            console.log(resJson);
+            
+        })
+        .catch(erro =>{
+            Swal.fire({
+                text: `Post Não Realizado, tente novamente`,
+                icon: "error"
+            })
+            console.log(erro);
+            
+        })
 }

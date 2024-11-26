@@ -41,6 +41,10 @@ function montaVaga(vagas) {
 	for(var i = 0; i < vagas.length; i++){
 		var vagaAtual = vagas[i];
 		console.log(vagaAtual);
+
+		let urlEmpresa = `cnpj=${vagaAtual.cnpj}`;
+		urlEmpresa = btoa(urlEmpresa)
+
 		let html = `
 			<div class="row" id="pg-6">
 								<div class="col-md-6" id="pg-6">
@@ -65,15 +69,17 @@ function montaVaga(vagas) {
 								</div>
 									<div class="tabs">
 										<ul class="nav nav-tabs">
-											<li class="active">
-												<a href="#popular" data-toggle="tab"><i></i>${vagaAtual.razao}s</a>
-											</li>
-										</ul>
+												<li class="active">
+													<a href="/timeline/pages-calendar.html?${urlEmpresa}" style="cursor: pointer"><i></i> ${vagaAtual.razao}</a>
+												</li>
+											</ul>
 										<div class="tab-content" id="pg-tab" style="width: 600px; margin-left: -5px;">
 											<div id="popular" class="tab-pane active">
-												<div class="favoritar"><p>${vagaAtual.necessidade}</p></div>
+												<div class="favoritar"><p><strong>Vaga: </strong>${vagaAtual.necessidade}</p></div>
 												<p><strong>Local: </strong>${vagaAtual.cidade} ${vagaAtual.estado}</p>
 												<p><strong>Salário: </strong> R$${vagaAtual.salario}</p> 
+												 
+
 												<div style="display: flex;
 												justify-content: right;
 												align-items: center;">

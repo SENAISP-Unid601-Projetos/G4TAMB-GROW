@@ -231,7 +231,14 @@ app.post('/desfavoritarVaga', async (req,res) => {
         res.json(erro)
     }
 })
-
+app.get('/novidades', async (req,res) => {
+    try {
+        const resposta = await clientes.recentes();
+        res.json(resposta);
+    } catch (error) {
+        res.json(error)
+    }
+})
 app.post('/verVagas', async (req,res) => {
     const dados = req.body;
     try {
@@ -241,8 +248,24 @@ app.post('/verVagas', async (req,res) => {
         res.json(erro)
     }
 })
-
-
+app.post('/postar', async (req, res) => {
+    const dados = req.body;
+    try {
+        const resposta = await clientes.postar(dados);
+        res.json(resposta)
+    }catch(erro) {
+        res.json(erro)
+    }
+})
+app.get('/getPostsPorCPF', async (req, res) => {
+    const dados = req.query;
+    try{
+        const resposta = await clientes.getPostsPorCPF(dados);
+        res.json(resposta)
+    } catch(erro) {
+        res.json(erro)
+    }
+})
 // Empresa
 app.post('/cadastraEmpresa', async (req, res) => {
     const dados = req.body;
@@ -284,6 +307,15 @@ app.get('/getVagas', async (req, res) => {
     }
 });
 
+
+app.get('/contaVagas', async (req, res) => {
+    try {
+        const resposta = await empresa.contaVagas();
+        res.json(resposta);
+    } catch (error) {
+        res.json(error)
+    }
+})
 app.get("/getVagaPorId", async (req, res) => {
     try {
         const dados = req.query;
@@ -293,7 +325,16 @@ app.get("/getVagaPorId", async (req, res) => {
     catch (erro) {
         res.json({ sucesso: false, mensagem: erro.message }); // Envia o erro, se ocorrer
     }
-})
+});
+app.post('/atualizarVaga', async (req, res) => {
+    const dados = req.body;
+    try {
+        const resposta = await empresa.editarVaga(dados);
+        res.json(resposta)
+    } catch (error) {
+        res.json(error)
+    }
+});
 app.post('/buscaEmpresaPorCNPJ', async (req, res) => {
     const dados = req.body;
     const resposta = await empresa.buscaPorCNPJ(dados);
@@ -313,9 +354,48 @@ app.post('/candidaturas', async (req, res) => {
         res.json(erro)
     }
 })
-
-
-// Recuperação de senha
+app.post('/buscaVagasPorCNPJ', async (req, res) => {
+    const dados = req.body;
+    try {
+        const resposta = await empresa.buscaVagasPorCNPJ(dados);
+        res.json(resposta)
+    } catch (erro) {
+        res.json(erro)
+    }
+})
+app.post('/deletarVaga', async (req, res) => {
+        const dados = req.query;
+        try {
+            const resposta = await empresa.excluirVaga(dados);
+            res.json(resposta)
+        } catch(erro) {
+            res.json(erro)
+        }
+})
+app.post('/usuarioPorVaga', async (req, res) => {
+    const dados = req.body;
+    try {
+        const resposta = await empresa.usuariosPorVaga(dados);
+        res.json(resposta)
+    } catch(erro) {
+        res.json(erro)
+    }
+})
+app.post('/contratar', async (req,res) => {
+    const dados = req.query;
+    const resposta = await empresa.contratar(dados);
+    res.json(resposta);
+})
+app.post('/alterarDescricao', async (req, res) => {
+    const dados = req.body;
+    try{
+        const resposta = await empresa.alterarDescricao(dados);
+        res.json(resposta)
+    } catch(erro) {
+        res.json(erro)
+    }
+})
+// emails
 app.post('/emailRecuperaSenha', (req, res) => {
     const obj = req.body;
     const resposta = services.enviaEmailSenha(obj);
@@ -333,7 +413,11 @@ app.post('/enviaEmail', (req, res) => {
     const resposta = services.enviarEmailDuvida(obj);
     res.json(resposta);
 });
-
+app.post('/emailContratacao', (req, res) => {
+    const obj = req.body;
+    const resposta = services.emailContratacao(obj);
+    res.json(resposta)
+})
 // Iniciando servidor
 app.listen(porta, () => {
     console.log("Iniciando Express na porta " + porta);

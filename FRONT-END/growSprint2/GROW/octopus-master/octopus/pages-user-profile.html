@@ -55,15 +55,6 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
-					<form action="pages-search-results.html" class="search nav-form">
-						<div class="input-group input-search">
-							<input type="text" class="form-control" name="q" id="q" placeholder="Pesquisar...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
-			
 					<span class="separator"></span>
 			
 					<ul class="notifications">
@@ -249,10 +240,8 @@
 									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> Meu Perfil</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Tela de Bloqueio</a>
-								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" class="logOut"><i class="fa fa-power-off"></i>Sair</a>
+									<a role="menuitem" tabindex="-1" class="logOut" style="cursor: pointer;"><i
+											class="fa fa-power-off"></i>Sair</a>
 								</li>
 							</ul>
 						</div>
@@ -301,7 +290,7 @@
 									</li> -->
 									<li>
 										<a href="pages-404-withoutmenus.html">
-											<span class="pull-right label label-primary">15</span>
+											<span class="pull-right label label-primary" id="qtdNovidades"></span>
 											<i class="fa  fa-bullhorn" aria-hidden="true"></i>
 											<span>Novidades</span>
 										</a>
@@ -328,10 +317,10 @@
 										</a>
 									</li>
 									<li >
-										<a href="#">
+										<a href="#" class="logOut">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-sign-out" aria-hidden="true"></i>
-											<span class="logOut">Sair</span>
+											<span>Sair</span>
 										</a>
 									</li>
 									<!-- <li class="nav-parent nav-expanded nav-active">
@@ -824,14 +813,14 @@
 									<p id="bioLateral"></p>
 									
 									<h6 class="text-muted">Contato</h6>
+									<p id="Telefone"></p>
 
 									<hr class="dotted short">
 
-									<div class="social-icons-list">
+									<!-- <div class="social-icons-list">
 										<a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
 										<a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-										<a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-									</div>
+									</div> -->
 
 								</div>
 							</section>
@@ -845,34 +834,15 @@
 									</div>
 
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-normal va-middle mr-sm">19</span>
+										<span class="label label-primary label-sm text-normal va-middle mr-sm qtdCandidaturas"></span>
 										<span class="va-middle">Candidaturas</span>
 									</h2>
 								</header>
 								<div class="panel-body">
 									<div class="content">
-										<ul class="simple-user-list">
-											<li>
-												<figure class="image rounded">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-												</figure>
-												<span class="title">ADZ Máquinas</span>
-												<span class="message truncate">Profissional de Montagem</span>
-											</li>
-											<li>
-												<figure class="image rounded">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-												</figure>
-												<span class="title">Gencau</span>
-												<span class="message truncate">Motorista CNH E</span>
-											</li>
-											<li>
-												<figure class="image rounded">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
-												</figure>
-												<span class="title">Posto Tuim</span>
-												<span class="message truncate">Frentista</span>
-											</li>
+										<ul class="simple-user-list" id="listaCandidaturas">
+											
+											
 											<!-- <li>
 												<figure class="image rounded">
 													<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
@@ -910,12 +880,12 @@
 											</li> -->
 										</ul>
 										<hr class="dotted short">
-										<div class="text-right">
+										<!-- <div class="text-right">
 											<a class="text-uppercase text-muted" href="#">(Ver Tudo)</a>
-										</div>
+										</div> -->
 									</div>
 								</div>
-								<div class="panel-footer">
+								<!-- <div class="panel-footer">
 									<div class="input-group input-search">
 										<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
 										<span class="input-group-btn">
@@ -923,7 +893,7 @@
 											</button>
 										</span>
 									</div>
-								</div>
+								</div> -->
 							</section>
 						</div>
 						<div class="col-md-8 col-lg-6">
@@ -934,7 +904,7 @@
 										<a href="#overview" data-toggle="tab">Ver Tudo</a>
 									</li>
 									<li>
-										<a href="#edit" data-toggle="tab">Editar</a>
+										<a href="#edit" data-toggle="tab">Editar Perfil</a>
 									</li>
 								</ul>
 								<div class="tab-content">
@@ -943,19 +913,19 @@
 
 										<section class="simple-compose-box mb-xlg">
 											<form method="get" action="/">
-												<textarea name="message-text" data-plugin-textarea-autosize placeholder="Escreva aqui..." rows="1"></textarea>
+												<textarea name="message-text" data-plugin-textarea-autosize placeholder="Escreva aqui..." rows="1" id="message-text"></textarea>
 											</form>
 											<div class="compose-box-footer">
-												<ul class="compose-toolbar">
+												<!-- <ul class="compose-toolbar">
 													<li>
 														<a href="#"><i class="fa fa-camera"></i></a>
 													</li>
 													<li>
 														<a href="#"><i class="fa fa-map-marker"></i></a>
 													</li>
-												</ul>
+												</ul> -->
 												<ul class="compose-btn">
-													<li>
+													<li id="posta">
 														<a class="btn btn-primary btn-xs">Postar</a>
 													</li>
 												</ul>
@@ -969,41 +939,9 @@
 												<div class="tm-title">
 													<h3 class="h5 text-uppercase">Informações</h3>
 												</div>
-												<ol class="tm-items">
-													<li>
-														<div class="tm-box">
-															<p class="text-muted mb-none">Pessoais</p>
-															<p>
-																Trabalhei como Servente de pedreiro em mais de 7 construções. <span class="text-primary">#awesome</span>
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="tm-box">
-															<p class="text-muted mb-none">A 2 MESES</p>
-															<p>
-																Trabalhei como Camioneiro para uma transportatora local.
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="tm-box">
-															<!-- <p class="text-muted mb-none">Habilidades</p> -->
-															<p>
-																Facilidade de Comunicação e trabalho em grupo.
-															</p>
-															
-														</div>
-													</li>
-													<li>
-														<div class="tm-box">
-															<!-- <p class="text-muted mb-none">Habilidades</p> -->
-															<p>
-																CNH A e E.
-															</p>
-															
-														</div>
-													</li>
+												<ol class="tm-items" id="containerr">
+					
+													
 												</ol>
 											</div>
 										</div>
@@ -1138,17 +1076,17 @@
 							<h4 class="mb-md">Perfil</h4>
 							<ul class="simple-card-list mb-xlg">
 								<a href="maps-vector.html" style="text-decoration: none;"><li class="primary">
-									<h3>0</h3>
+									<h3 class="qtdCandidaturas"></h3>
 									<p>Candidaturas</p>
 								</li></a>
 								<!-- <li class="primary">
 									<h3>0</h3>
 									<p>Seguidores</p>
 								</li> -->
-								<li class="primary">
+								<!-- <li class="primary">
 									<h3>0</h3>
 									<p>Empresas Mostraram Interesse</p>
-								</li>
+								</li> -->
 							</ul>
 
 							<!-- <h4 class="mb-md">Projects</h4> 
@@ -1172,21 +1110,24 @@
 							</ul>-->
 
 							<h4 class="mb-md">Mensagens</h4>
-							<ul class="simple-user-list mb-xlg">
-								<li>
-									<figure class="image rounded">
-										<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-									</figure>
-									<span class="title">GROW</span>
-									<span class="message">Olá, Bem vindo ao Grow! É um prazer ter você aqui.</span>
-								</li>
-								<li>
-									<figure class="image rounded">
-										<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-									</figure>
-									<span class="title">GROW</span>
-									<span class="message">Qualquer dúvida, você pode entrar em contato pelo Menu Ajuda!.</span>
-								</li>
+						<ul class="simple-user-list mb-xlg">
+							<li>
+								<figure class="image rounded">
+									<img src="./logoPreta.jpg" alt="Joseph Doe Junior" style="height: 3em;"
+										class="img-circle">
+								</figure>
+								<span class="title">GROW</span>
+								<span class="message">Olá, Bem vindo ao Grow! É um prazer ter você aqui.</span>
+							</li>
+							<li>
+								<figure class="image rounded">
+									<img src="./logoPreta.jpg" alt="Joseph Doe Junior" style="height: 3em;"
+										class="img-circle">
+								</figure>
+								<span class="title">GROW</span>
+								<span class="message">Qualquer dúvida, você pode entrar em contato pelo Menu
+									Ajuda!.</span>
+							</li>
 								<!-- <li> -->
 									<!-- <figure class="image rounded"> 
 										<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
@@ -1305,6 +1246,75 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
+
+		<script>
+			fetch('/novidades')
+				.then(res => {
+					if(!res.ok) {
+						throw new Error("Deu Ruim");
+					}
+					return res.json()
+				})
+				.then(resJson =>{
+					const qtd = resJson.resp.length;
+					document.getElementById('qtdNovidades').textContent = qtd;
+				})
+				.catch(error =>{
+					console.log(error);	
+				})
+		</script>
+
+		<script>
+			//carregar os posts
+			let cpf = JSON.parse(localStorage.getItem('DadosUsuario'))
+			cpf = cpf.cpf;
+			fetch(`/getPostsPorCPF?cpf=${cpf}`)
+				.then(res => {
+					if(!res.ok) {
+						throw new Error('Deu Ruim')
+					}
+					return res.json();
+				})
+				.then(res =>{
+					if(res.sucesso == true) {
+						const container = document.getElementById('containerr')
+						const posts = res.resp
+						posts.forEach(post => {
+							let html = `
+								<li>
+														<div class="tm-box">
+															<p class="text-muted mb-none">${post.data_postagem}</p>
+															<p>
+																${post.texto}
+															</p>
+														</div>
+													</li>
+							
+							` ;
+							container.innerHTML += html
+						});
+					}
+					
+				})
+				.catch(erro => {
+					console.log(erro);
+					
+				})
+				fetch('/novidades')
+				.then(res => {
+					if(!res.ok) {
+						throw new Error("Deu Ruim");
+					}
+					return res.json()
+				})
+				.then(resJson =>{
+					const qtd = resJson.resp.length;
+					document.getElementById('qtdNovidades').textContent = qtd;
+				})
+				.catch(error =>{
+					console.log(error);	
+				})
+		</script>
 
 		<script src="assets/js/usuario.js"></script>
 

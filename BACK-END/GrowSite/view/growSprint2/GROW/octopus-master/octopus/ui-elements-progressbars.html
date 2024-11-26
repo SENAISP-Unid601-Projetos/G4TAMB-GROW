@@ -4,8 +4,8 @@
 
 		<!-- Basic -->
 		<meta charset="UTF-8">
-
-		<title>Progress Bars | Okler Themes | Porto-Admin</title>
+		<link rel="website icon" type="png" href="../icon.png" sizes="30px">
+		<title id="titlo">Candidatos</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
 		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
 		<meta name="author" content="okler.net">
@@ -33,6 +33,7 @@
 
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	</head>
 	<body>
@@ -41,8 +42,8 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="../" class="logo">
-						<img src="assets/images/logo.png" height="35" alt="Porto Admin" />
+					<a href="#" class="logo">
+						<img src="assets/images/logo.jpg" height="35" alt="Porto Admin" />
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
 						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
@@ -52,19 +53,12 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
-					<form action="pages-search-results.html" class="search nav-form">
-						<div class="input-group input-search">
-							<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
+					
 			
 					<span class="separator"></span>
 			
 					<ul class="notifications">
-						<li>
+						<!-- <li>
 							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-tasks"></i>
 								<span class="badge">3</span>
@@ -128,7 +122,7 @@
 										<li>
 											<a href="#" class="clearfix">
 												<figure class="image">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle" />
+													<img src="assets/images/usuario.jpg" alt="Joseph Doe Junior" class="img-circle" />
 												</figure>
 												<span class="title">Joseph Doe</span>
 												<span class="message">Lorem ipsum dolor sit.</span>
@@ -170,17 +164,17 @@
 									</div>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						<li>
 							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-bell"></i>
-								<span class="badge">3</span>
+								<span class="badge">18</span>
 							</a>
 			
 							<div class="dropdown-menu notification-menu">
 								<div class="notification-title">
 									<span class="pull-right label label-default">3</span>
-									Alerts
+									Notificações
 								</div>
 			
 								<div class="content">
@@ -188,10 +182,10 @@
 										<li>
 											<a href="#" class="clearfix">
 												<div class="image">
-													<i class="fa fa-thumbs-down bg-danger"></i>
+													<i class="fa fa-thumbs-up bg-success"></i>
 												</div>
-												<span class="title">Server is Down!</span>
-												<span class="message">Just now</span>
+												<span class="title">1 Nova Empresa no GROW</span>
+												<span class="message">Confira as vagas disponíveis</span>
 											</a>
 										</li>
 										<li>
@@ -199,8 +193,8 @@
 												<div class="image">
 													<i class="fa fa-lock bg-warning"></i>
 												</div>
-												<span class="title">User Locked</span>
-												<span class="message">15 minutes ago</span>
+												<span class="title">Termine o seu perfil</span>
+												<span class="message">Siga uma página de interesse</span>
 											</a>
 										</li>
 										<li>
@@ -208,8 +202,8 @@
 												<div class="image">
 													<i class="fa fa-signal bg-success"></i>
 												</div>
-												<span class="title">Connection Restaured</span>
-												<span class="message">10/10/2014</span>
+												<span class="title">Adicione novas informações</span>
+												<span class="message">Torne seu perfil mais interessante</span>
 											</a>
 										</li>
 									</ul>
@@ -229,11 +223,11 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="fileImg img-circle" id="imgTop"  data-lock-picture="assets/images/!logged-user.jpg" />
 							</figure>
-							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-								<span class="name">John Doe Junior</span>
-								<span class="role">administrator</span>
+							<div class="profile-info" data-lock-name="John Doe" data-lock-email="dasouza@okler.com">
+								<span class="name nomePerfil" id="nomePerfil"></span>
+								<span class="role rolePerfil">Empresa</span>
 							</div>
 			
 							<i class="fa custom-caret"></i>
@@ -243,13 +237,12 @@
 							<ul class="list-unstyled">
 								<li class="divider"></li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
+									<a role="menuitem" tabindex="-1" href="pages-500.html" data-lock-screen="false"><i
+											class="fa fa-user"></i> Perfil</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
-								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Logout</a>
+									<a role="menuitem" tabindex="-1" class="logOut" style="cursor: pointer;"><i
+											class="fa fa-power-off"></i>Sair</a>
 								</li>
 							</ul>
 						</div>
@@ -265,7 +258,7 @@
 				
 					<div class="sidebar-header">
 						<div class="sidebar-title">
-							Navigation
+							Menu
 						</div>
 						<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
 							<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
@@ -276,28 +269,64 @@
 						<div class="nano-content">
 							<nav id="menu" class="nav-main" role="navigation">
 								<ul class="nav nav-main">
-									<li>
+									<!-- <li>
 										<a href="index.html">
 											<i class="fa fa-home" aria-hidden="true"></i>
-											<span>Dashboard</span>
+											<span>Pá</span>
+										</a>
+									</li> -->
+								
+									<!-- <li>
+										<a href="#">
+											<span class="pull-right label label-primary">18</span>
+											<i class="fa  fa-bell" aria-hidden="true"></i>
+											<span>Notifições</span>
+										</a>
+									</li> -->
+									<li>
+										<a href="ui-elements-sliders.html">
+											<span class="pull-right label label-primary" id="anuncioss"></span>
+											<i class="fa  fa-bullhorn" aria-hidden="true"></i>
+											<span>Anúncios Publicados</span>
+										</a>
+									</li>
+									<!-- <li class="nav-active">
+										<a href="#">
+										 <span class="pull-right label label-primary">18</span>
+											<i class="fa   fa-bookmark" aria-hidden="true"></i>
+											<span>Perfis Salvos</span>
+										</a>
+									</li> -->
+									<li class="nav-active">
+										<a href="ui-elements-progressbars.html">
+											<!-- <span class="pull-right label label-primary">18</span> -->
+											<i class="fa  fa-check-square-o" aria-hidden="true"></i>
+											<span>Candidatos</span>
 										</a>
 									</li>
 									<li>
-										<a href="mailbox-folder.html">
-											<span class="pull-right label label-primary">182</span>
-											<i class="fa fa-envelope" aria-hidden="true"></i>
-											<span>Mailbox</span>
+										<a href="ui-elements-nestable.html">
+											<!-- <span class="pull-right label label-primary">18</span> -->
+											<i class="fa  fa-exclamation" aria-hidden="true"></i>
+											<span>Ajuda</span>
 										</a>
 									</li>
-									<li class="nav-parent">
-										<a>
-											<i class="fa fa-copy" aria-hidden="true"></i>
-											<span>Pages</span>
+									<li>
+										<a href="#" class="logOut">
+											<!-- <span class="pull-right label label-primary">18</span> -->
+											<i class="fa  fa-sign-out" aria-hidden="true"></i>
+											<span>Sair</span>
 										</a>
-										<ul class="nav nav-children">
+									</li>
+									<!-- <li class="nav-parent nav-expanded nav-active">
+										<a>
+											<i class="fa fa-exclamation" aria-hidden="true"></i>
+											<span>Ajuda</span>
+										</a> -->
+										<!-- <ul class="nav nav-children">
 											<li>
-												<a href="pages-signup.html">
-													 Sign Up
+												<a href="ui-elements-tabs.html">
+													 Página Inicial
 												</a>
 											</li>
 											<li>
@@ -315,7 +344,7 @@
 													 Locked Screen
 												</a>
 											</li>
-											<li>
+											<li class="nav-active">
 												<a href="pages-user-profile.html">
 													 User Profile
 												</a>
@@ -370,9 +399,9 @@
 													 Search Results
 												</a>
 											</li>
-										</ul>
-									</li>
-									<li class="nav-parent nav-expanded nav-active">
+										</ul> -->
+									<!-- </li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-tasks" aria-hidden="true"></i>
 											<span>UI Elements</span>
@@ -433,7 +462,7 @@
 													 Lightbox
 												</a>
 											</li>
-											<li class="nav-active">
+											<li>
 												<a href="ui-elements-progressbars.html">
 													 Progress Bars
 												</a>
@@ -484,8 +513,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="nav-parent">
+									</li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-list-alt" aria-hidden="true"></i>
 											<span>Forms</span>
@@ -522,8 +551,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="nav-parent">
+									</li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-table" aria-hidden="true"></i>
 											<span>Tables</span>
@@ -560,8 +589,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="nav-parent">
+									</li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 											<span>Maps</span>
@@ -583,8 +612,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="nav-parent">
+									</li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-columns" aria-hidden="true"></i>
 											<span>Layouts</span>
@@ -611,8 +640,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="nav-parent">
+									</li> -->
+									<!-- <li class="nav-parent">
 										<a>
 											<i class="fa fa-align-left" aria-hidden="true"></i>
 											<span>Menu Levels</span>
@@ -644,19 +673,19 @@
 												</ul>
 											</li>
 										</ul>
-									</li>
-									<li>
+									</li> -->
+									<!-- <li>
 										<a href="http://themeforest.net/item/porto-responsive-html5-template/4106987?ref=Okler" target="_blank">
 											<i class="fa fa-external-link" aria-hidden="true"></i>
 											<span>Front-End <em class="not-included">(Not Included)</em></span>
 										</a>
-									</li>
+									</li> -->
 								</ul>
 							</nav>
 				
 							<hr class="separator" />
 				
-							<div class="sidebar-widget widget-tasks">
+							<!-- <div class="sidebar-widget widget-tasks">
 								<div class="widget-header">
 									<h6>Projects</h6>
 									<div class="widget-toggle">+</div>
@@ -668,11 +697,11 @@
 										<li><a href="#">Porto Admin</a></li>
 									</ul>
 								</div>
-							</div>
+							</div> -->
 				
 							<hr class="separator" />
 				
-							<div class="sidebar-widget widget-stats">
+							<!-- <div class="sidebar-widget widget-stats">
 								<div class="widget-header">
 									<h6>Company Stats</h6>
 									<div class="widget-toggle">+</div>
@@ -708,7 +737,7 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> -->
 						</div>
 				
 					</div>
@@ -718,1777 +747,81 @@
 
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Progress Bars</h2>
+						<h2>Candidatos</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
 								<li>
-									<a href="index.html">
-										<i class="fa fa-home"></i>
+									<a href="pages-500.html">
+										<i class="fa fa-user"></i>
 									</a>
 								</li>
-								<li><span>UI Elements</span></li>
-								<li><span>Progress Bars</span></li>
+								<!-- <li><span>Páginas</span></li> -->
+								<li><span>Perfil da Empresa</span></li>
 							</ol>
 					
-							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+							<a class="sidebar-right-toggle" data-open=""><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
 					<!-- start: page -->
-					<div class="row">
-						<div class="col-md-6">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress light m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-6">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped light active m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-
-					<!-- Light - Info Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Light - Danger Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Light - Dark Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60% Complete
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-
-
-
-					<!-- Light - Default Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Light - Primary Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Light - Success Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Light - Warning Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md light">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
 
 					<div class="row">
-						<div class="col-md-6">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
-
-									<div class="progress m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60% Complete</span>
-										</div>
-									</div>
+					
+						<div class="tudo" style="display: flex; justify-content: right;">
+							<div class="meio" id="container">
+								
+			
+							</div>
+							
+								<div class="col-md-12 col-lg-3" style="position: fixed; width: 13%;">
+			
+									<h4 class="mb-md">Dados</h4>
+									<ul class="simple-card-list mb-xlg">
+										<a href="ui-elements-sliders.html" style="text-decoration: none;"><li class="primary">
+											<h3 id="qtd"></h3>
+											<p>Anúncios</p>
+										</li></a>
+										<a href="#" style="text-decoration: none;"><li class="primary">
+											<h3 id="candidatoss"></h3>
+											<p>Candidatos</p>
+										</li></a>
+										<!-- <li class="primary">
+											<h3>0</h3>
+											<p>Seguidores</p>
+										</li>
+										<li class="primary">
+											<h3>0</h3>
+											<p>Empresas Mostraram Interesse</p>
+										</li> -->
+									</ul>
+			
+									<!-- <h4 class="mb-md">Projects</h4> 
+									<ul class="simple-bullet-list mb-xlg">
+										<li class="red">
+											<span class="title">Porto Template</span>
+											<span class="description truncate">Lorem ipsom dolor sit.</span>
+										</li>
+										<li class="green">
+											<span class="title">Tucson HTML5 Template</span>
+											<span class="description truncate">Lorem ipsom dolor sit amet</span>
+										</li>
+										<li class="blue">
+											<span class="title">Porto HTML5 Template</span>
+											<span class="description truncate">Lorem ipsom dolor sit.</span>
+										</li>
+										<li class="orange">
+											<span class="title">Tucson Template</span>
+											<span class="description truncate">Lorem ipsom dolor sit.</span>
+										</li>
+									</ul>-->
+			
+									
 								</div>
-							</section>
+							
 						</div>
-
-						<div class="col-md-6">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-striped m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
+			
 							</section>
-						</div>
-					</div>
-
-					<!-- Default - Default Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Primary Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Success Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Warning Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Info Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Danger Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-					</div>
-
-					<!-- Default - Dark Sizes -->
-					<div class="row">
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-striped progress-xs m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-sm m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-md m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-lg m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-
-									<div class="progress progress-striped progress-xl m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											<span class="sr-only">60%</span>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-half-rounded m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<div class="col-md-4">
-							<section class="panel">
-								<div class="panel-body">
-									<div class="progress progress-xs progress-squared m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-sm progress-squared m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-md progress-squared m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-lg progress-squared m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-
-									<div class="progress progress-xl progress-squared m-md">
-										<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-					<!-- end: page -->
-				</section>
 			</div>
 
 			<aside id="sidebar-right" class="sidebar-right">
@@ -2569,6 +902,9 @@
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		
+		<!-- Specific Page Vendor -->
+		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
 		
@@ -2578,5 +914,45 @@
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
 
+		<script src="assets/js/infoGeraisEmpresa.js"></script>
+
+		<script src="assets/js/contratacao.js"></script>
+
+		<script src="assets/js/empresa.js"></script>
+		<script>
+			let sair = document.querySelectorAll('.logOut');
+   sair.forEach(s => {
+        s.addEventListener('click',()=>{
+            logOut()
+        })
+   })
+
+function logOut(){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "Sucesso",
+        title: "Saindo da conta ..."
+      });
+    localStorage.removeItem('DadosUsuario')
+    window.open('/','_self')
+}
+
+	let razao = localStorage.getItem('DadosUsuario')
+	razao =JSON.parse(razao);
+	razao = razao.razao;
+	document.getElementById('nomePerfil').textContent = razao;
+
+
+		</script>
 	</body>
 </html>

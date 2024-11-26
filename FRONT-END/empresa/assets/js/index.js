@@ -50,7 +50,7 @@ async function cadastraEmpresa(dados) {
                         return res.json()
                     })
                     .then(data => {
-                        window.location.href = '/login'
+                        open("/login", "_self");
                     })
                     .catch(erro => {
                         console.log(erro);

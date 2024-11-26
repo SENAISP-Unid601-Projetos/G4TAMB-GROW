@@ -1,5 +1,5 @@
     window.addEventListener('DOMContentLoaded', () => {
-        favoritarVaga();
+        //favoritarVaga();
     });
 
     async function favoritarVaga(botao, idVaga, cpfUsuario) {

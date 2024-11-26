@@ -4,8 +4,8 @@
 
 		<!-- Basic -->
 		<meta charset="UTF-8">
-
-		<title>Tabs | Okler Themes | Porto-Admin</title>
+		<link rel="website icon" type="png" href="../icon.png" sizes="30px">
+		<title>Gow - Ajuda Usuário</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
 		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
 		<meta name="author" content="okler.net">
@@ -52,14 +52,14 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
-					<form action="#" class="search nav-form">
+					<!-- <form action="#" class="search nav-form">
 						<div class="input-group input-search">
 							<input type="text" class="form-control" name="q" id="q" placeholder="Pesquisar...">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 							</span>
 						</div>
-					</form>
+					</form> -->
 			
 					<span class="separator"></span>
 			
@@ -229,27 +229,28 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="assets/images/!logged-user.jpg" id="imgTop" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+								<img src="assets/images/!logged-user.jpg" id="imgTop" alt="Joseph Doe" class="img-circle"
+									data-lock-picture="assets/images/!logged-user.jpg" />
 							</figure>
+							<img style="display: none;" id="img">
 							<div class="profile-info" data-lock-name="John Doe" data-lock-email="dasouza@okler.com">
-								<span class="name nomePerfil"></span>
-								<span class="role rolePerfil"></span>
+								<span class="name nomePerfil" id="nome"></span>
+								<span class="role rolePerfil" id="tipo"></span>
 							</div>
-			
+	
 							<i class="fa custom-caret"></i>
 						</a>
-			
+	
 						<div class="dropdown-menu">
 							<ul class="list-unstyled">
 								<li class="divider"></li>
-								<li> 
-									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> Meu Perfil</a>
+								<li>
+									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i
+											class="fa fa-user"></i> Meu Perfil</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen=""><i class="fa fa-lock"></i> Tela de Bloqueio</a>
-								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i>Sair</a>
+									<a role="menuitem" tabindex="-1" class="logOut" style="cursor: pointer;"><i
+											class="fa fa-power-off"></i>Sair</a>
 								</li>
 							</ul>
 						</div>
@@ -282,13 +283,7 @@
 											<span>Dashboard</span>
 										</a>
 									</li> -->
-									<li class="nav-active">
-										<a href="ui-elements-tabs.html">
-											<!-- <span class="pull-right label label-primary">182</span> -->
-											<i class="fa fa-home" aria-hidden="true"></i>
-											<span>Página Inicial</span>
-										</a>
-									</li>
+									
 									<!-- <li>
 										<a href="#">
 											<span class="pull-right label label-primary">18</span>
@@ -297,8 +292,15 @@
 										</a>
 									</li> -->
 									<li>
-										<a href="#">
-											<span class="pull-right label label-primary">15</span>
+										<a href="ui-elements-tabs.html">
+											<!-- <span class="pull-right label label-primary">182</span> -->
+											<i class="fa fa-home" aria-hidden="true"></i>
+											<span>Página Inicial</span>
+										</a>
+									</li>
+									<li>
+										<a href="pages-404-withoutmenus.html">
+											<span class="pull-right label label-primary" id="qtdNovidades"></span>
 											<i class="fa  fa-bullhorn" aria-hidden="true"></i>
 											<span>Novidades</span>
 										</a>
@@ -320,7 +322,7 @@
 											<span>Candidaturas</span>
 										</a>
 									</li>
-									<li>
+									<li class="nav-active">
 										<a href="#">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-exclamation" aria-hidden="true"></i>
@@ -328,7 +330,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="#" class="logOut">
 											<!-- <span class="pull-right label label-primary">18</span> -->
 											<i class="fa  fa-sign-out" aria-hidden="true"></i>
 											<span>Sair</span>
@@ -763,7 +765,7 @@
 
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Página Inicial</h2>
+						<h2>Ajuda</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -805,14 +807,14 @@
 							</div>
 						</div>
 							<div class="tabs">
-								<ul class="nav nav-tabs">
+								<ul class="nav nav-tabs" style="margin-left: -15px;">
 									<li class="active">
 										<a href="#popular" data-toggle="tab"><i></i> Central de Ajuda</a>
 									</li>
 								</ul>
 								<div class="tab-content" id="pg-tab" style="width: 750px; margin-left: -15px;">
 									<div id="popular" class="tab-pane active">
-										<div class="favoritar"><p style="font-size: 20px;">Perguntas frequentes</p> <div class="ico"><i  style="margin-right: 10px;"></i><i  style="margin-right: 10px;"></i><i ></i></div></div>
+										<div class="favoritar"><p style="font-size: 20px;">Dúvidas Frequentes</p> <div class="ico"><i  style="margin-right: 10px;"></i><i  style="margin-right: 10px;"></i><i ></i></div></div>
 										<div class="owl-carousel" data-plugin-carousel data-plugin-options='{ "items": 1, "autoHeight": true }'>
 											
 											<!-- <div class="item">
@@ -825,24 +827,26 @@
 										Bem-vindo à nossa Central de Ajuda! Aqui, você encontrará respostas para as perguntas mais comuns, dicas para resolver problemas e guias para usar nossos recursos. Navegue pelas seções abaixo para encontrar o que precisa, ou entre em contato com nossa equipe de suporte para mais assistência.
 										<br>
 										<br>
-										1. Acesso e Login <br>
-								Esqueceu a senha? <br> 
-							Clique em "Esqueci minha senha" na página de login. Siga as instruções enviadas por e-mail. <br>
-								Problemas de acesso? <br>
-							Atualize o navegador e verifique sua conexão. Limpar o cache e cookies pode ajudar. <br> <br>
-										2. Configuração da Conta <br>
-								Alterar informações pessoais? <br>
-							Acesse "Configurações da Conta" para atualizar seus dados.  <br>
-								Excluir conta? <br>
-							Em "Configurações da Conta", selecione "Excluir Conta". Esta ação é permanente. <br><br>
-										3. Pagamentos e Assinatura <br>
-							Pagamento Aceitamos cartões e métodos digitais. Após a compra, você recebe uma confirmação por e-mail. <br>
-								Cancelar assinatura?<br>
-							Em "Assinaturas" na sua conta, é possível cancelar a renovação automática. <br> <br>
-										4. Contato com o Suporte <br>
-								Não encontrou o que procurava? <br>
-							Entre em contato conosco pelo formulário de contato ou envie um e-mail para [grow.corporacao@gmail.com]. <br>
-Estamos aqui para ajudar!
+										<b>1. Acesso e Login</b> <br><br>
+										<b>Esqueceu a senha?</b> <br> 
+										Clique em "Esqueci minha senha" na página de login. Siga as instruções enviadas por e-mail. <br>
+										<b>Problemas de acesso?</b> <br>
+										Atualize o navegador e verifique sua conexão. Limpar o cache e cookies pode ajudar. <br> <br>
+										<b>2. Configuração da Conta</b> <br><br>
+										<b>Alterar informações pessoais?</b> <br>
+										Acesse "Configurações da Conta" para atualizar seus dados.  <br>
+										<b>Excluir conta?</b> <br>
+										Em "Configurações da Conta", selecione "Excluir Conta". Esta ação é permanente. <br><br>
+										<b>3. Pagamentos e Assinatura</b> <br><br>
+										Pagamento Aceitamos cartões e métodos digitais. Após a compra, você recebe uma confirmação por e-mail. <br>
+										<b>Cancelar assinatura?</b><br>
+										Em "Assinaturas" na sua conta, é possível cancelar a renovação automática. <br> <br>
+										<div style="background-color: rgb(223, 222, 222); padding: 10px; color: rgb(110, 110, 110); border-radius: 5px;">
+										<b>4. Contato com o Suporte </b><br><br>
+										<b>Não encontrou o que procurava?</b> <br>
+										Entre em contato conosco pelo formulário de contato ou envie um e-mail para <b><a href="">grow.corporacao@gmail.com</a></b>. <br>
+										Estamos aqui para ajudar!
+										</div>
 									</div>
 								</div>
 							</div>
@@ -863,10 +867,7 @@ Estamos aqui para ajudar!
 								<p></p>
 							</li></a>
 						
-							<a href="ui-elements-tabs.html" class="anuncio voltar"><li class="primary" style="background-color: rgb(145, 145, 145);">
-								<h3 style="font-size: 15px; font-family:system-ui; color: white;">Voltar</h3>
-								<p></p>
-							</li></a>
+							
 							<!-- <li class="primary">
 								<h3>0</h3>
 								<p>Seguidores</p>
@@ -1004,11 +1005,28 @@ Estamos aqui para ajudar!
 		<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/javascripts/theme.js"></script>
 
-		<script src="assets/js/usuario.js"></script>
+
+		<script>
+			fetch('/novidades')
+				.then(res => {
+					if(!res.ok) {
+						throw new Error("Deu Ruim");
+					}
+					return res.json()
+				})
+				.then(resJson =>{
+					const qtd = resJson.resp.length;
+					document.getElementById('qtdNovidades').textContent = qtd;
+				})
+				.catch(error =>{
+					console.log(error);	
+				})
+		</script>
 
 		<!-- Theme Custom -->
 		<script src="assets/javascripts/theme.custom.js"></script>
@@ -1016,5 +1034,8 @@ Estamos aqui para ajudar!
 		<!-- Theme Initialization Files -->
 		<script src="assets/javascripts/theme.init.js"></script>
 
+		<script src="assets/js/vagaEmpresa.js"></script>
+
+		<script src="assets/js/usuario.js"></script>
 	</body>
 </html>
